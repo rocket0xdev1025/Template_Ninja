@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Aster Chain</title>
+    <meta charset="UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <style>
+      body {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s ease 0.2s, visibility 0.2s ease 0.2s;
+      }
+
+      .loaded body {
+        opacity: 1;
+        visibility: visible;
+      }
+    </style>
+    <link rel="stylesheet" href="css/style.min.css?_v=20241221141520" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="menu-open-bg"></div>
+      <header class="header">
+        <div class="header__container">
+          <a href="../" class="header__logo"
+            ><img src="img/logo.png" alt="Logo"
+          /></a>
+          <div class="header__menu menu">
+            <button type="button" class="menu__icon icon-menu">
+              <span></span><i></i>
+            </button>
+            <nav class="menu__body">
+              <ul class="menu__list">
+                <li class="menu__item">
+                  <a href="#" data-goto=".about__container" class="menu__link"
+                    >About</a
+                  >
+                </li>
+                <li class="menu__item">
+                  <a
+                    href="#"
+                    data-goto=".how"
+                    data-goto-top="40"
+                    class="menu__link"
+                    >How to buy</a
+                  >
+                </li>
+                <li class="menu__item">
+                  <a href="#" data-goto=".tokenomics" class="menu__link"
+                    >Tokenomics</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <a
+            href="https://pancakeswap.finance/swap?outputCurrency=0x475ff0640bed0262ef1c464b4de7a0ae1ca9faa8"
+            target="_blank"
+            class="header__buy"
+            data-da=".menu__body, 767.98"
+          >
+            <span>BUY NOW</span></a
+          >
+        </div>
+      </header>
+
+      <main class="page">
+        <section class="page__hero hero">
+          <div class="hero__parallax-box">
+            <div class="hero__parallax-item hero__parallax--bg">
+              <img src="img/hero/bg.png" alt="BG" />
+            </div>
+            <div class="hero__parallax-item hero__parallax--buildings">
+              <img src="img/hero/buildings.png" alt="Buildings" />
+            </div>
+            <div class="hero__parallax-item hero__parallax--logo">
+              <img src="img/hero/logo.png" alt="Logo" />
+            </div>
+            <div class="hero__parallax-item hero__parallax--cat">
+              <img src="img/hero/cat.png" alt="Cat" />
+              <img src="img/hero/cat2.png" alt="Cat" />
+              <img src="img/hero/cat3.png" alt="Cat" />
+            </div>
+            <div class="hero__parallax-item hero__parallax--light">
+              <img src="img/hero/light.png" alt="Light" />
+            </div>
+            <div
+              class="hero__parallax-item hero__parallax--rain"
+              id="rain-box"
+            ></div>
+          </div>
+          <div class="hero__container">
+            <div class="hero__actions">
+              <a
+                href="https://pancakeswap.finance/swap?outputCurrency=0x475ff0640bed0262ef1c464b4de7a0ae1ca9faa8"
+                target="_blank"
+                class="hero__buy"
+                ><span>BUY NOW</span></a
+              >
+              <a
+                href="https://dexscreener.com/bsc/0x475ff0640bed0262ef1c464b4de7a0ae1ca9faa8"
+                target="_blank"
+                class="hero__buy"
+                ><span>Chart</span></a
+              >
+              <div class="hero__social">
+                <a
+                  href="https://x.com/AsterChain_bnb"
+                  target="_blank"
+                  class="hero__social-item"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="73"
+                    height="66"
+                    viewBox="0 0 73 66"
+                    fill="none"
+                  >
+                    <path
+                      d="M46.415 16.7704H51.5077L40.383 29.5175L53.4717 46.8664H43.2247L35.1931 36.3465L26.0134 46.8664H20.916L32.8139 33.2274L20.2637 16.7728H30.7717L38.0205 26.3865L46.415 16.7704ZM44.6242 43.8112H47.4468L29.2299 19.6666H26.2032L44.6242 43.8112Z"
+                      fill="white"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://t.me/AsterChain_bnb"
+                  target="_blank"
+                  class="hero__social-item"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="46"
+                    height="45"
+                    viewBox="0 0 46 45"
+                    fill="none"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M39.2592 6.67683C39.7729 6.46265 40.3353 6.38878 40.8876 6.46291C41.44 6.53703 41.9622 6.75645 42.3999 7.09832C42.8376 7.44019 43.1748 7.89201 43.3764 8.40676C43.578 8.92151 43.6366 9.48036 43.5461 10.0252L38.8309 38.3542C38.3735 41.0868 35.3465 42.6539 32.8163 41.2927C30.6999 40.1539 27.5564 38.3995 24.7289 36.5688C23.3152 35.6524 18.9846 32.718 19.5168 30.6299C19.9742 28.8446 27.2508 22.1356 31.4088 18.1468C33.0408 16.5797 32.2966 15.6757 30.3693 17.1172C25.5834 20.6962 17.8994 26.1387 15.3588 27.6708C13.1176 29.0217 11.9492 29.2523 10.5521 29.0217C8.00323 28.6016 5.63939 27.9509 3.71006 27.1581C1.10297 26.0872 1.22979 22.5371 3.70798 21.5034L39.2592 6.67683Z"
+                      fill="white"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="page__about about">
+          <div class="about__bg">
+            <img src="img/about/bg.png" alt="BG" />
+          </div>
+          <div class="about__container" data-watch="navigator">
+            <div
+              class="about__content"
+              data-watch-threshold="0.6"
+              data-watch-once
+              data-watch
+            >
+              <h2
+                class="about__title"
+                data-watch-threshold="0.6"
+                data-watch-once
+                data-watch
+              >
+                <span>the secret of</span>
+                <span>AsterChain</span>
+              </h2>
+              <blockquote class="twitter-tweet"><p lang="en" dir="ltr">This is a big one. Trade with privacy. Aster Chain. <a href="https://t.co/pkEQdLBK0J">https://t.co/pkEQdLBK0J</a></p>&mdash; CZ 🔶 BNB (@cz_binance) <a href="https://twitter.com/cz_binance/status/2033937734356898166?ref_src=twsrc%5Etfw">March 17, 2026</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+              <div
+                class="about__actions"
+                data-watch-threshold="0.6"
+                data-watch-once
+                data-watch
+              >
+                <a
+                  href="https://pancakeswap.finance/swap?outputCurrency=0x475ff0640bed0262ef1c464b4de7a0ae1ca9faa8"
+                  target="_blank"
+                  class="about__buy"
+                  ><span>BUY NOW</span></a
+                >
+                <div class="about__social">
+                  <a
+                    href="https://x.com/AsterChain_bnb"
+                    target="_blank"
+                    class="about__social-item"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="73"
+                      height="66"
+                      viewBox="0 0 73 66"
+                      fill="none"
+                    >
+                      <path
+                        d="M46.415 16.7704H51.5077L40.383 29.5175L53.4717 46.8664H43.2247L35.1931 36.3465L26.0134 46.8664H20.916L32.8139 33.2274L20.2637 16.7728H30.7717L38.0205 26.3865L46.415 16.7704ZM44.6242 43.8112H47.4468L29.2299 19.6666H26.2032L44.6242 43.8112Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </a>
+                  <a
+                    href="https://t.me/AsterChain_bnb"
+                    target="_blank"
+                    class="about__social-item"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="46"
+                      height="45"
+                      viewBox="0 0 46 45"
+                      fill="none"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M39.2592 6.67683C39.7729 6.46265 40.3353 6.38878 40.8876 6.46291C41.44 6.53703 41.9622 6.75645 42.3999 7.09832C42.8376 7.44019 43.1748 7.89201 43.3764 8.40676C43.578 8.92151 43.6366 9.48036 43.5461 10.0252L38.8309 38.3542C38.3735 41.0868 35.3465 42.6539 32.8163 41.2927C30.6999 40.1539 27.5564 38.3995 24.7289 36.5688C23.3152 35.6524 18.9846 32.718 19.5168 30.6299C19.9742 28.8446 27.2508 22.1356 31.4088 18.1468C33.0408 16.5797 32.2966 15.6757 30.3693 17.1172C25.5834 20.6962 17.8994 26.1387 15.3588 27.6708C13.1176 29.0217 11.9492 29.2523 10.5521 29.0217C8.00323 28.6016 5.63939 27.9509 3.71006 27.1581C1.10297 26.0872 1.22979 22.5371 3.70798 21.5034L39.2592 6.67683Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="about__image">
+              <img src="img/about/cat.png" alt="Image" />
+              <img src="img/about/cat2.png" alt="Image" />
+              <img src="img/about/cat3.png" alt="Image" />
+            </div>
+          </div>
+        </section>
+        <div class="page__sections-box">
+          <div class="page__sections-box-bg">
+            <img src="img/BG.png" alt="BG" />
+          </div>
+          <section class="page__how how" data-watch="navigator">
+            <div class="how__container">
+              <h2
+                class="how__title"
+                data-watch-threshold="0.65"
+                data-watch-once
+                data-watch
+              >
+                <img src="img/how/title.png" alt="How to Buy" />
+              </h2>
+              <div class="how__body">
+                <div class="how__image">
+                  <img src="img/how/01.png" alt="Image" />
+                </div>
+                <div class="how__items">
+                  <div
+                    class="how__item"
+                    data-watch-threshold="0.65"
+                    data-watch-once
+                    data-watch
+                  >
+                    <div class="how__item-num blue">1</div>
+                    <div class="how__item-text">
+                      Download a BSC-compatible wallet like Metamsk. 
+                      Create and secure your wallet by saving the
+                      recovery phrase in a safe place. <br />
+                      Fund Your Wallet
+                    </div>
+                  </div>
+                  <div
+                    class="how__item"
+                    data-watch-threshold="0.65"
+                    data-watch-once
+                    data-watch
+                  >
+                    <div class="how__item-num grey">2</div>
+                    <div class="how__item-text">
+                      Purchase BNB from a trusted exchange (e.g.,
+                      Binance, Coinbase). <br />
+                      Transfer the BNB to your wallet by copying your wallet’s
+                      address and withdrawing from the exchange. <br />
+                      Connect to a BNB Marketplace or DEX
+                    </div>
+                  </div>
+                  <div
+                    class="how__item"
+                    data-watch-threshold="0.65"
+                    data-watch-once
+                    data-watch
+                  >
+                    <div class="how__item-num blue">3</div>
+                    <div class="how__item-text">
+                      Visit a decentralized exchange (DEX) or NFT marketplace on
+                      the BNB network, like Metamask. <br />
+                      Connect your wallet to the Metamask. <br />
+                      Buy ASTERCHAIN
+                    </div>
+                  </div>
+                  <div
+                    class="how__item"
+                    data-watch-threshold="0.65"
+                    data-watch-once
+                    data-watch
+                  >
+                    <div class="how__item-num grey">4</div>
+                    <div class="how__item-text">
+                      Search for the ASTERCHAIN token or collection on the platform.
+                      Confirm the contract address to avoid scams. <br />
+                      Swap your BNB for ASTERCHAIN, approve the transaction, and
+                      check your wallet to ensure it’s received.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="page__tokenomics tokenomics" data-watch="navigator">
+            <div class="tokenomics__container">
+              <h2
+                class="tokenomics__title"
+                data-watch-threshold="0.65"
+                data-watch-once
+                data-watch
+              >
+                <img src="img/tokenomics/title.png" alt="TOKENOMICS" />
+              </h2>
+              <div class="tokenomics__body">
+                <div class="tokenomics__content">
+                  <div
+                    class="tokenomics__rows"
+                    data-watch-threshold="0.65"
+                    data-watch-once
+                    data-watch
+                  >
+                    <div class="tokenomics__row">
+                      <span>Total supply</span>
+                      <span>1b</span>
+                    </div>
+                    <!-- <div class="tokenomics__row">
+                      <span>Buy/Sell Tax</span>
+                      <span>4/4</span>
+                    </div> -->
+                    <div class="tokenomics__row">
+                      <span>LP</span>
+                      <span>BURN</span>
+                    </div>
+                    <div class="tokenomics__row">
+                      <span>Name</span>
+                      <span>Aster Chain</span>
+                    </div>
+                  </div>
+                  <div
+                    class="tokenomics__ca"
+                    data-watch-threshold="0.65"
+                    data-watch-once
+                    data-watch
+                  >
+                    <div class="tokenomics__ca-body">
+                      <span>CA</span>
+                      <span id="ca-value"
+                        >0x475ff0640bed0262ef1c464b4de7a0ae1ca9faa8</span
+                      >
+                    </div>
+                    <button
+                      type="button"
+                      class="tokenomics__ca-button copy-ca-btn"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="34"
+                        height="34"
+                        viewBox="0 0 34 34"
+                        fill="none"
+                      >
+                        <path
+                          d="M19.833 11.3335H5.66634C4.10376 11.3335 2.83301 12.6042 2.83301 14.1668V28.3335C2.83301 29.8961 4.10376 31.1668 5.66634 31.1668H19.833C21.3956 31.1668 22.6663 29.8961 22.6663 28.3335V14.1668C22.6663 12.6042 21.3956 11.3335 19.833 11.3335Z"
+                          fill="white"
+                        />
+                        <path
+                          d="M28.333 2.8335H14.1663C13.4149 2.8335 12.6942 3.13201 12.1629 3.66336C11.6315 4.19471 11.333 4.91538 11.333 5.66683V8.50016H22.6663C23.4178 8.50016 24.1385 8.79867 24.6698 9.33003C25.2012 9.86138 25.4997 10.582 25.4997 11.3335V22.6668H28.333C29.0845 22.6668 29.8051 22.3683 30.3365 21.837C30.8678 21.3056 31.1663 20.5849 31.1663 19.8335V5.66683C31.1663 4.91538 30.8678 4.19471 30.3365 3.66336C29.8051 3.13201 29.0845 2.8335 28.333 2.8335Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="tokenomics__image">
+                  <img src="img/tokenomics/01.png" alt="Image" />
+                  <img src="img/tokenomics/02.png" alt="Image" />
+                  <img src="img/tokenomics/03.png" alt="Image" />
+                </div>
+              </div>
+            </div>
+            <div class="tokenomics__bottom">
+              <img src="img/tokenomics/bottom.png" alt="Image" />
+            </div>
+          </section>
+          <section class="page__join join">
+            <div class="join__top">
+              <div class="join__top-bg">
+                <img src="img/join/bg.png" alt="BG" />
+              </div>
+              <div class="join__container">
+                <div class="join__top-body">
+                  <h2
+                    class="join__top-title"
+                    data-watch-threshold="0.65"
+                    data-watch-once
+                    data-watch
+                  >
+                    <img src="img/join/title.png" alt="JOIN US" />
+                  </h2>
+                  <div
+                    class="join__top-actions"
+                    data-watch-threshold="0.65"
+                    data-watch-once
+                    data-watch
+                  >
+                    <a
+                      href="https://pancakeswap.finance/swap?outputCurrency=0x475ff0640bed0262ef1c464b4de7a0ae1ca9faa8"
+                      target="_blank"
+                      class="join__top-buy"
+                      ><span>BUY NOW</span></a
+                    >
+                    <div class="join__top-social">
+                      <a
+                        href="https://x.com/AsterChain_bnb"
+                        target="_blank"
+                        class="join__top-social-item"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="73"
+                          height="66"
+                          viewBox="0 0 73 66"
+                          fill="none"
+                        >
+                          <path
+                            d="M46.415 16.7642H51.5077L40.383 29.5113L53.4717 46.8602H43.2247L35.1931 36.3403L26.0134 46.8602H20.916L32.8139 33.2211L20.2637 16.7665H30.7717L38.0205 26.3803L46.415 16.7642ZM44.6242 43.805H47.4468L29.2299 19.6604H26.2032L44.6242 43.805Z"
+                            fill="white"
+                          />
+                        </svg>
+                      </a>
+                      <a
+                        href="https://t.me/AsterChain_bnb"
+                        target="_blank"
+                        class="join__top-social-item"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="46"
+                          height="45"
+                          viewBox="0 0 46 45"
+                          fill="none"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M39.2592 6.6706C39.7729 6.45642 40.3353 6.38255 40.8876 6.45668C41.44 6.53081 41.9622 6.75023 42.3999 7.0921C42.8376 7.43397 43.1748 7.88579 43.3764 8.40053C43.578 8.91528 43.6366 9.47414 43.5461 10.0189L38.8309 38.3479C38.3735 41.0805 35.3465 42.6476 32.8163 41.2865C30.6999 40.1477 27.5564 38.3932 24.7289 36.5626C23.3152 35.6462 18.9846 32.7118 19.5168 30.6237C19.9742 28.8384 27.2508 22.1293 31.4088 18.1406C33.0408 16.5735 32.2966 15.6695 30.3693 17.111C25.5834 20.6899 17.8994 26.1325 15.3588 27.6646C13.1176 29.0154 11.9492 29.2461 10.5521 29.0154C8.00323 28.5954 5.63939 27.9446 3.71006 27.1518C1.10297 26.081 1.22979 22.5309 3.70798 21.4971L39.2592 6.6706Z"
+                            fill="white"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="join__top-image">
+                    <img src="img/join/cat.png" alt="ASTERCHAIN" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="join__mid">
+              <div class="join__mid-bg">
+                <img src="img/join/bottom.png" alt="Image" />
+              </div>
+              <div class="join__container">
+                <div class="join__mid-body">
+                  <a href="#" data-goto=".hero" class="join__mid-logo">
+                    <img src="img/join/logo.png" alt="Logo" />
+                  </a>
+                  <div class="join__mid-menu">
+                    <a
+                      href="#"
+                      data-goto=".about__container"
+                      class="join__mid-menu-item"
+                      >ABOUT</a
+                    >
+                    <a href="#" data-goto=".how" class="join__mid-menu-item"
+                      >HOW TO BUY</a
+                    >
+                    <a
+                      href="#"
+                      data-goto=".tokenomics"
+                      class="join__mid-menu-item"
+                      >TOKENOMICS</a
+                    >
+                  </div>
+                  <div class="join__mid-socail">
+                    <a
+                      href="https://x.com/AsterChain_bnb"
+                      target="_blank"
+                      class="join__mid-social-item"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="58"
+                        height="54"
+                        viewBox="0 0 58 54"
+                        fill="none"
+                      >
+                        <path
+                          d="M36.6842 14.2163H40.7631L31.8528 24.4261L42.3362 38.3216H34.1289L27.696 29.8958L20.3435 38.3216H16.2607L25.7904 27.3975L15.7383 14.2182H24.1546L29.9606 21.9183L36.6842 14.2163ZM35.2498 35.8746H37.5106L22.9197 16.536H20.4955L35.2498 35.8746Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </a>
+                    <a
+                      href="https://t.me/AsterChain_bnb"
+                      target="_blank"
+                      class="join__mid-social-item"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="37"
+                        height="37"
+                        viewBox="0 0 37 37"
+                        fill="none"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M31.6723 5.94228C32.0838 5.77073 32.5342 5.71156 32.9767 5.77094C33.4191 5.83031 33.8373 6.00605 34.1879 6.27987C34.5385 6.55369 34.8086 6.91558 34.97 7.32786C35.1315 7.74015 35.1784 8.18776 35.106 8.62411L31.3293 31.3142C30.963 33.5028 28.5385 34.758 26.5119 33.6678C24.8168 32.7557 22.299 31.3505 20.0344 29.8842C18.902 29.1502 15.4335 26.7999 15.8598 25.1275C16.2261 23.6975 22.0542 18.3239 25.3846 15.1291C26.6918 13.874 26.0956 13.1499 24.552 14.3045C20.7188 17.171 14.5642 21.5302 12.5294 22.7574C10.7343 23.8393 9.79848 24.0241 8.67947 23.8393C6.63796 23.5029 4.74464 22.9817 3.19935 22.3467C1.11121 21.489 1.21279 18.6455 3.19769 17.8176L31.6723 5.94228Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </a>
+                    <a
+                      href="https://dexscreener.com/bsc/0x475ff0640bed0262ef1c464b4de7a0ae1ca9faa8"
+                      target="_blank"
+                      class="join__mid-social-item"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="37"
+                        height="37"
+                        viewBox="0 0 37 37"
+                        fill="none"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M21.6563 14.5475C22.4731 14.1561 23.5121 13.5798 24.5526 12.7902C24.7719 13.2281 24.7961 13.6102 24.6829 13.9187C24.6027 14.1361 24.4517 14.3252 24.2535 14.4757C24.0387 14.6382 23.7702 14.7568 23.4735 14.8207C22.9106 14.9426 22.2533 14.8716 21.6563 14.5475ZM21.798 18.5582L22.879 19.1585C20.6717 20.3478 20.0715 22.5561 19.3585 24.7069C18.6458 22.5561 18.0456 20.3476 15.8383 19.1585L16.9193 18.5582C17.1339 18.4802 17.2719 18.2785 17.261 18.0582C17.1618 16.0438 17.7277 15.1529 18.4911 14.5938C18.7647 14.3935 19.0636 14.293 19.3585 14.293C19.6534 14.293 19.9523 14.3935 20.2259 14.5938C20.9891 15.1532 21.5549 16.0438 21.456 18.0582C21.4452 18.2785 21.5836 18.4802 21.798 18.5582ZM19.3588 5.40527C20.6084 5.43759 21.8612 5.67071 22.9485 6.12435C23.7015 6.43897 24.4037 6.85435 25.04 7.35124C25.3273 7.57557 25.5639 7.79228 25.8245 8.0418C26.5273 8.06509 27.5544 7.31464 28.0313 6.61245C27.2105 9.19859 23.4658 12.2524 20.8734 13.4211C20.8724 13.4206 20.8717 13.4201 20.8709 13.4197C20.4057 13.0781 19.8824 12.9073 19.359 12.9073C18.8357 12.9073 18.3123 13.0781 17.8471 13.4197C17.8464 13.4201 17.8456 13.4208 17.8447 13.4211C15.2517 12.2524 11.5073 9.19835 10.6865 6.61245C11.1634 7.31464 12.1903 8.06532 12.8931 8.0418C13.1536 7.79252 13.3902 7.57557 13.6775 7.35124C14.3135 6.85435 15.0161 6.43897 15.7691 6.12435C16.8566 5.67071 18.1092 5.43759 19.3588 5.40527ZM17.0613 14.5475C16.2447 14.1561 15.2055 13.5798 14.165 12.7902C13.9457 13.2281 13.9215 13.6102 14.0344 13.9187C14.1145 14.1361 14.2656 14.3252 14.4638 14.4757C14.6789 14.6382 14.9473 14.7568 15.244 14.8207C15.8069 14.9426 16.4645 14.8716 17.0613 14.5475Z"
+                          fill="white"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M25.6922 11.8225C26.2649 11.2669 26.7698 10.652 27.1754 10.103L27.3816 10.4759C28.0451 11.752 28.39 13.0231 28.39 14.4534L28.3885 16.7232L28.4008 17.8997C28.4488 20.7884 29.0992 23.7108 30.572 26.3853L27.4904 23.9967L25.31 27.3979L23.0194 25.325L19.3588 31.0353L15.6981 25.3253L13.4075 27.3981L11.2272 23.9969L8.14551 26.3856C9.61836 23.711 10.2685 20.7884 10.3167 17.9L10.3291 16.7234L10.3276 14.4536C10.3276 13.0231 10.6722 11.7522 11.336 10.4761L11.5419 10.1033C11.9478 10.652 12.4523 11.2669 13.0251 11.8228L12.8461 12.18C12.4986 12.8736 12.3836 13.6492 12.6543 14.387C12.8288 14.8621 13.1472 15.2696 13.5578 15.5807C13.9566 15.8827 14.4285 16.0864 14.9224 16.1933C15.2443 16.2629 15.5721 16.2917 15.8979 16.282C15.822 16.6961 15.7886 17.1255 15.7867 17.5633L12.8798 19.1772L15.1229 20.3858C15.3021 20.4826 15.473 20.593 15.6331 20.7169C17.4825 22.313 18.5944 27.035 19.3585 29.3415C20.1226 27.035 21.2346 22.313 23.0839 20.7169C23.2441 20.5933 23.415 20.4826 23.5942 20.3858L25.8373 19.1772L22.9304 17.5633C22.9282 17.1255 22.895 16.6961 22.8192 16.282C23.145 16.2917 23.4728 16.2629 23.7946 16.1933C24.2886 16.0864 24.7605 15.8827 25.1592 15.5807C25.5698 15.2696 25.8883 14.8621 26.0628 14.387C26.3335 13.6495 26.2185 12.8738 25.8709 12.18L25.6922 11.8225Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </a>
+                    <a
+                      href="https://www.dextools.io/app/en/bnb/pair-explorer/0x475ff0640bed0262ef1c464b4de7a0ae1ca9faa8"
+                      target="_blank"
+                      class="join__mid-social-item"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="35"
+                        height="35"
+                        viewBox="0 0 35 35"
+                        fill="none"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M14.4119 4.55647C12.7182 5.46418 11.3325 6.23236 11.3329 6.26364C11.3337 6.34423 15.3978 8.46198 15.542 8.45679C15.6076 8.45459 16.0836 8.22906 16.5998 7.95594L17.5383 7.45927L18.5634 8.00138L19.5884 8.54359L21.267 7.76757C23.7963 6.59819 24.059 6.47004 24.0178 6.42705C23.9632 6.36988 23.0561 5.86853 20.5947 4.53527C19.4052 3.8909 18.2506 3.25917 18.029 3.13126C17.8072 3.00323 17.5957 2.90038 17.5587 2.90237C17.5217 2.90436 16.1056 3.64877 14.4119 4.55647ZM6.9833 8.5142L5.22021 9.45128V13.5637C5.22021 15.8255 5.24332 17.676 5.27179 17.676C5.30025 17.676 6.16757 17.2891 7.19939 16.8162L9.0755 15.9564V11.6218L9.99236 12.1357C10.6988 12.5313 11.4058 12.9261 12.113 13.3202L13.3169 13.9908L13.8526 13.7415C14.1885 13.5849 14.5239 13.4269 14.8585 13.2672C15.117 13.1433 15.7517 12.8491 16.269 12.6134C16.7862 12.3777 17.2649 12.1404 17.3328 12.0865C17.423 12.0146 16.3234 11.3894 13.2657 9.77393C10.9609 8.55617 9.0012 7.56364 8.91081 7.56844C8.82041 7.57325 7.95308 7.99876 6.9833 8.5142ZM24.3354 8.77732C23.1346 9.33501 22.1512 9.81364 22.1501 9.84092C22.1491 9.8682 22.8035 10.2686 23.6045 10.7305C24.4055 11.1927 25.0609 11.5954 25.0609 11.6257C25.0609 11.6561 24.3521 12.0094 23.4859 12.4111C22.6195 12.8129 20.4299 13.8303 18.6198 14.6722L12.5546 17.4928C11.0289 18.2025 9.65367 18.842 9.4985 18.9143C6.38217 20.3657 5.52567 20.7684 5.40806 20.8376C5.28977 20.9072 5.26302 21.3115 5.24196 23.341L5.2168 25.7617L6.79351 26.5882L8.37014 27.4147L10.5564 26.3996C11.7589 25.8413 12.7427 25.3554 12.7427 25.3195C12.7427 25.2836 12.5204 25.1349 12.249 24.9883C11.9775 24.8418 11.4168 24.5176 11.003 24.2675C10.5893 24.0174 10.1768 23.7881 10.0862 23.7576C9.99565 23.7272 9.92293 23.6742 9.92437 23.6395C9.92587 23.6049 10.8886 23.1346 12.0636 22.5939C14.3459 21.5441 16.0925 20.7349 19.8422 18.9903C21.5188 18.2103 23.1958 17.4311 24.8728 16.6519C26.3468 15.9673 28.0605 15.168 28.6811 14.8754L29.8095 14.3435L29.8346 11.8953L29.8597 9.44719L28.2606 8.60276C27.381 8.13831 26.6293 7.75949 26.5898 7.7609C26.5504 7.76218 25.536 8.21955 24.3354 8.77732ZM29.3812 17.6094C29.1455 17.7278 28.6801 17.9496 28.3469 18.1021C28.0136 18.2546 27.3814 18.5481 26.9416 18.7545L26.1424 19.1296L26.1242 21.2788C26.1141 22.4609 26.0718 23.4228 26.0301 23.4166C25.9356 23.4021 24.4375 22.6116 22.9317 21.7814C21.8449 21.1823 21.7766 21.1585 21.5212 21.2887C21.3736 21.364 20.4911 21.7711 19.5602 22.1937C18.6292 22.6162 17.8372 22.9896 17.7999 23.0233C17.7628 23.057 19.6363 24.1017 21.9635 25.3451L26.1947 27.6058L28.0021 26.6437C28.9962 26.1148 29.8414 25.6322 29.8804 25.5715C29.968 25.435 29.9605 17.3752 29.8727 17.3861C29.838 17.3904 29.6168 17.491 29.3812 17.6094ZM19.3721 27.0696C19.0585 27.2082 18.7451 27.3472 18.4317 27.4862C17.4855 27.9074 17.6709 27.9214 16.5451 27.3448C15.7953 26.9608 15.4721 26.8423 15.3319 26.8998C15.2266 26.9429 14.3209 27.3621 13.3192 27.8314C12.3174 28.3007 11.4631 28.6846 11.4206 28.6846C11.0003 28.6846 11.6991 29.114 14.3953 30.5134L17.5574 32.1544L18.8879 31.4786C19.6196 31.1069 21.0955 30.3625 22.1678 29.8247C23.2399 29.2865 24.1039 28.8322 24.0877 28.8152C24.0715 28.7981 23.1731 28.3234 22.0912 27.7604L20.1242 26.7369L19.3721 27.0696Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="join__bottom">
+            </div>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="footer__container"></div>
+      </footer>
+    </div>
+    <script src="js/app.min.js?_v=20241221141520"></script>
+    <script src="js/demo.js"></script>
+  </body>
+</html>
